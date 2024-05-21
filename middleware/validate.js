@@ -1,11 +1,11 @@
 const validator = require('../helpers/validate');
 
-const account = (req, res, next) => {
+const hotels = (req, res, next) => {
   const validationRule = {
   
-    account_id: 'required|integer',
-    limit: 'required|integer',
-    products: 'array'
+    hotels_id: 'required|integer',
+    rooms: 'required|integer',
+    type: 'array'
   };
  
 
@@ -22,7 +22,30 @@ const account = (req, res, next) => {
   });
 };
 
-const customer = (req, res, next) => {
+const staff = (req, res, next) => {
+  const validationRule = {
+  
+    staff_id: 'required|integer',
+    name: 'required|integer',
+    position: 'array',
+    role: 'array'
+  };
+ 
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).send({
+        success: false,
+        message: 'Validation failed',
+        data: err
+      });
+    } else {
+      next();
+    }
+  });
+};
+
+const clients = (req, res, next) => {
   let passValidation = true;
   const validationRule = {
     username: 'required|string',
@@ -31,10 +54,10 @@ const customer = (req, res, next) => {
     birthdate: 'datetime',
     email: 'string',
     active: 'boolean',
-    accounts: 'array'
+    hotelss: 'array'
   }
 
-  req.body.accountIds.map(id => {
+  req.body.hotelsIds.map(id => {
     passValidation = (typeof id === 'string' || myVar instanceof String) ?
       true : false;
   });
@@ -57,6 +80,7 @@ const customer = (req, res, next) => {
 
 
 module.exports = {
-  account,
-  customer
+  hotels,
+  clients, 
+  staff
 };
