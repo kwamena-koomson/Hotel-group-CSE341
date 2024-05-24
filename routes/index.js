@@ -1,23 +1,31 @@
 const router = require('express').Router();
-const passport= require('passport');
-
-//router.get('/' , (req, res) => { res.send('Hello World');});
-
-router.use('/accounts', require('./accounts'));
-router.use('/customers', require('./customers'));
-
+const passport = require('passport');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger.json');
 
+// Routes for different collections
+router.use('/hotels', require('./hotels'));
+router.use('/staff', require('./staff'));
+router.use('/clients', require('./clients'));
+router.use('/bookings', require('./bookings')); // Assuming bookings is the additional collection
+
+// Swagger API documentation setup
 router.use('/api-docs', swaggerUi.serve);
 router.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
-router.get('/login', passport.authenticate('github'), (req, res) => {});
-router.get('/logout', function(req, res, next) {
-    req.logout(function(err) {
-        if (err) { return next(err); }
-        res.redirect('/');
-    });
+// GitHub OAuth login route
+router.get('/login', passport.authenticate('github'), (req, res) => {
+  // This route redirects to GitHub OAuth login page
+});
+
+// Logout route
+router.get('/logout', (req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/');
+  });
 });
 
 module.exports = router;
