@@ -75,7 +75,7 @@ const createclient = async (req, res) => {
 };
 const updateclient = async (req, res) => {
   const clientId = new ObjectId(req.params.id);
-  const client = req.body.accountIds
+  const client = req.body.clientIds
   const response = await mongodb
     .getDatabase()
     .db(DATABASE)

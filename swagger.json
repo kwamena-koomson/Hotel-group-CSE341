@@ -42,7 +42,7 @@
         }
       }
     },
-    "/accounts/": {
+    "/clients/": {
       "get": {
         "description": "",
         "produces": [
@@ -95,7 +95,7 @@
         }
       }
     },
-    "/accounts/{id}": {
+    "/clients/{id}": {
       "get": {
         "description": "",
         "produces": [

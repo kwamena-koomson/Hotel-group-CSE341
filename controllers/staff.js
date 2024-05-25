@@ -75,7 +75,7 @@ const createStaff = async (req, res) => {
 };
 const updateStaff = async (req, res) => {
   const StaffId = new ObjectId(req.params.id);
-  const Staff = req.body.accountIds
+  const Staff = req.body.clientIds
   const response = await mongodb
     .getDatabase()
     .db(DATABASE)

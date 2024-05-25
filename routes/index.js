@@ -3,7 +3,7 @@ const passport= require('passport');
 
 //router.get('/' , (req, res) => { res.send('Hello World');});
 
-router.use('/accounts', require('./accounts'));
+router.use('/clients', require('./clients'));
 router.use('/customers', require('./customers'));
 
 const swaggerUi = require('swagger-ui-express');
