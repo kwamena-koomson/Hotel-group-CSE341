@@ -190,7 +190,7 @@
         }
       }
     },
-    "/customers/": {
+    "/staff/": {
       "get": {
         "description": "",
         "produces": [
@@ -252,7 +252,7 @@
         }
       }
     },
-    "/customers/{id}": {
+    "/staff/{id}": {
       "get": {
         "description": "",
         "produces": [
