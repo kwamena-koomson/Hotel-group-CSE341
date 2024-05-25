@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 const DATABASE = "sample_analytics";
 const COLLECTION_NAME = "clients";
 
-const getAllclient = async (req, res) => {
+const getAllClient = async (req, res) => {
   const result = await mongodb
     .getDatabase()
     .db(DATABASE)
@@ -29,7 +29,7 @@ const getAllclient = async (req, res) => {
   // });
 };
 
-const getSingleclient = async (req, res) => {
+const getSingleClient = async (req, res) => {
   const clientId = new ObjectId(req.params.id);
   const result = await mongodb
     .getDatabase()
@@ -50,7 +50,7 @@ const getSingleclient = async (req, res) => {
   // });
 };
 
-const createclient = async (req, res) => {
+const createClient = async (req, res) => {
   const client = {
     username: req.body.username,
     name: req.body.name,
@@ -73,7 +73,7 @@ const createclient = async (req, res) => {
     res.status(500).json(response.error || 'Failed to create user.');
   }
 };
-const updateclient = async (req, res) => {
+const updateClient = async (req, res) => {
   const clientId = new ObjectId(req.params.id);
   const client = req.body.clientIds
   const response = await mongodb
@@ -88,7 +88,7 @@ const updateclient = async (req, res) => {
     res.status(500).json(response.error || 'Failed to update user.');
   }
 };
-const deleteclient = async (req, res) => {
+const deleteClient = async (req, res) => {
   const clientId = new ObjectId(req.params.id);
 
   const response = await mongodb
@@ -105,9 +105,9 @@ const deleteclient = async (req, res) => {
 };
 
 module.exports = {
-  getAllclient,
-  getSingleclient,
-  createclient,
-  updateclient,
-  deleteclient
+  getAllClient,
+  getSingleClient,
+  createClient,
+  updateClient,
+  deleteClient
 };

@@ -4,10 +4,10 @@ const validation = require('../middleware/validate.js');
 const clientsController = require('../controllers/clients.js');
 const { isAuthenticated } = require('../middleware/authenticate.js');
 
-router.get('/', clientsController.getAllClients);
-router.get('/:id', clientsController.getSingleClients);
-router.post('/', isAuthenticated, clientsController.createClients);
-router.put('/:id',isAuthenticated, validation.clients, clientsController.updateClients);
-router.delete('/:id', isAuthenticated, clientsController.deleteClients);
+router.get('/', clientsController.getAllClient);
+router.get('/:id', clientsController.getSingleClient);
+router.post('/', isAuthenticated, clientsController.createClient);
+router.put('/:id',isAuthenticated, validation.clients, clientsController.updateClient);
+router.delete('/:id', isAuthenticated, clientsController.deleteClient);
 
 module.exports = router;
