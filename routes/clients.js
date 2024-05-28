@@ -11,3 +11,4 @@ router.put('/:id',isAuthenticated, validation.clients, clientsController.updateC
 router.delete('/:id', isAuthenticated, clientsController.deleteClient);
 
 module.exports = router;
+
