@@ -1,7 +1,7 @@
 const mongodb = require('../database/database');
 const ObjectId = require('mongodb').ObjectId;
 
-const DATABASE = "sample_analytics";
+const DATABASE = "HotelierPro";
 const COLLECTION_NAME = "staffs";
 
 const getAllStaff = async (req, res) => {
