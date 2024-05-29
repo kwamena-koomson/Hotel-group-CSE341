@@ -60,9 +60,9 @@ const getSingleHotels = async (req, res) => {
 
 const createHotels = async (req, res) => {
   const hotels = {
-    hotels_id: req.body.id,
-    limit: req.body.limit,
-    products: req.body.product
+    hotels_id: 'required|integer',
+    rooms: 'required|integer',
+    type: 'array'
 
   };
   const response = await mongodb

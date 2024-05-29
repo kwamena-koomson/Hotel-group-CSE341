@@ -52,13 +52,13 @@ const getSingleClient = async (req, res) => {
 
 const createClient = async (req, res) => {
   const client = {
-    username: req.body.username,
-    name: req.body.name,
-    email: req.body.email,
-    birthday: req.body.birthday,
-    address: req.body.address,
-    phone: req.body.phone,
-    active: req.body.boolean
+    username: 'required|string',
+    name: 'required|string',
+    address: 'string',
+    birthdate: 'datetime',
+    email: 'string',
+    active: 'boolean',
+    hotelss: 'array'
   };
   const response = await mongodb
     .getDatabase()

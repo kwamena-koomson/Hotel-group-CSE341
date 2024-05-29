@@ -52,13 +52,10 @@ const getSingleStaff = async (req, res) => {
 
 const createStaff = async (req, res) => {
   const Staff = {
-    username: req.body.username,
-    name: req.body.name,
-    email: req.body.email,
-    birthday: req.body.birthday,
-    address: req.body.address,
-    phone: req.body.phone,
-    active: req.body.boolean
+    staff_id: 'required|integer',
+    name: 'required|integer',
+    position: 'array',
+    role: 'array'
   };
   const response = await mongodb
     .getDatabase()

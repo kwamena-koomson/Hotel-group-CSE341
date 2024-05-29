@@ -54,10 +54,37 @@ const clients = (req, res, next) => {
     birthdate: 'datetime',
     email: 'string',
     active: 'boolean',
-    hotelss: 'array'
+    hotels: 'array'
   }
 
-  req.body.hotelsIds.map(id => {
+  req.body.clientIds.map(id => {
+    passValidation = (typeof id === 'string' || myVar instanceof String) ?
+      true : false;
+  });
+ 
+
+
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).send({
+        success: false,
+        message: 'Validation failed',
+        data: err
+      });
+    } else {
+      next();
+    }
+  });
+};
+
+const bookings = (req, res, next) => {
+  let passValidation = true;
+  const validationRule = {
+    bookings_id: req.body.id,
+    limit: req.body.limit
+  }
+
+  req.body.bookingsId.map(id => {
     passValidation = (typeof id === 'string' || myVar instanceof String) ?
       true : false;
   });
@@ -78,9 +105,8 @@ const clients = (req, res, next) => {
 };
 
 
-
 module.exports = {
   hotels,
   clients, 
-  staff
+  staff, bookings
 };
