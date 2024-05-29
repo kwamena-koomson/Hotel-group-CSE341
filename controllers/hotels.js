@@ -2,10 +2,10 @@ const mongodb = require('../database/database');
 const ObjectId = require('mongodb').ObjectId;
 
 const DATABASE = "HotelierPro";
-const COLLECTION_NAME = "hotelss";
+const COLLECTION_NAME = "hotels";
 
 const getAllHotels = async (req, res) => {
-  console.log("getAllhotels");
+  console.log("getAllHotels");
   const result = await mongodb
     .getDatabase()
     .db(DATABASE)
@@ -62,7 +62,7 @@ const createHotels = async (req, res) => {
   const hotels = {
     hotels_id: req.body.id,
     limit: req.body.limit,
-    products: req.body.product,
+    products: req.body.product
 
   };
   const response = await mongodb
@@ -81,13 +81,9 @@ const createHotels = async (req, res) => {
 const updateHotels = async (req, res) => {
   const hotelsId = new ObjectId(req.params.id);
   const hotels = {
-    firstName: req.body['first name'],
-    lastName: req.body['last name'],
-    email: req.body.email,
-    gender: req.body.gender,
-    birthday: req.body.birthday,
-    address: req.body.address,
-    phone: req.body.phone
+    hotels_id: req.body.id,
+    limit: req.body.limit,
+    products: req.body.product,
   };
   const response = await mongodb
     .getDatabase()
