@@ -5,7 +5,7 @@ const passport= require('passport');
 
 router.use('/clients', require('./clients'));
 router.use('/staff', require('./staff'));
-router.use('/hotelss', require('./hotels'));
+router.use('/hotels', require('./hotels'));
 router.use('/bookings', require('./bookings'));
 
 const swaggerUi = require('swagger-ui-express');
