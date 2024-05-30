@@ -7,7 +7,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "eslint .",
         "lint:fix": "eslint --fix",
-        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+        "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+        "generate-swagger": "swagger-jsdoc -d swaggerDef.js -o swagger.json"
     },
     "author": "",
     "license": "ISC",
@@ -26,9 +27,9 @@
         "mongoose": "^8.4.0",
         "passport": "^0.7.0",
         "passport-github2": "^0.1.12",
-        "swagger-jsdoc": "^6.2.8",
         "swagger-ui-express": "^5.0.0",
-        "validatorjs": "^3.22.1"
+        "validatorjs": "^3.22.1",
+        "yamljs": "^0.3.0"
     },
     "devDependencies": {
         "@types/passport-github2": "^1.2.9",
@@ -38,6 +39,7 @@
         "eslint-plugin-react": "^7.34.1",
         "nodemon": "^3.1.0",
         "prettier": "^3.2.5",
-        "swagger-autogen": "^2.23.7"
+        "swagger-autogen": "^2.23.7",
+        "swagger-jsdoc": "^6.2.8"
     }
 }

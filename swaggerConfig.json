@@ -1,0 +1,17 @@
+{
+    "swaggerDefinition": {
+      "info": {
+        "title": "Hotel API",
+        "description": "API endpoints for managing hotels",
+        "version": "1.0.0"
+      },
+      "servers": [
+        {
+          "url": "http://localhost:3000",
+          "description": "Development server"
+        }
+      ]
+    },
+    "apis": ["./routes/*.js"]
+  }
+  
